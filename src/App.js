@@ -1,8 +1,14 @@
 import React from 'react';
+import './index.css' ;
+import LoginForm from './components/LoginForm/LoginForm';
 
 function App() {
-  const value = 'World';
-  return <div>Hello {value}</div>;
+  
+  return (
+    <div>
+      <LoginForm/>
+    </div>
+  );
 }
 
 export default App;
