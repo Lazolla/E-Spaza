@@ -11,7 +11,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('./Components/Assets/E-Spaza.webp') no-repeat;
+    background: url('./components/Assets/E-Spaza.webp') no-repeat;
     background-size: cover;
     
 }
