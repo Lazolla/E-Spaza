@@ -1,13 +1,44 @@
 module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+    const fs = require('fs');
+    const users = JSON.parse(fs.readFileSync('../shared/users.json'));
 
-    const name = (req.query.name || (req.body && req.body.name));
-    const responseMessage = name
-        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
+    const { userinput, passinput } = req.body;
 
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: responseMessage
-    };
-}
+    if (!userinput || !passinput) {
+        context.res = {
+            status: 400,
+            body: "Please provide both username and password."
+        };
+        return;
+    }
+
+    let userFound = false;
+    for (const user of users) {
+        if (userinput === user.username) {
+            userFound = true;
+            if (passinput === user.password) {
+                // Correct username and password
+                context.res = {
+                    status: 200,
+                    body: "Login Successful",
+                };
+                return;
+            } else {
+                // Correct username but incorrect password
+                context.res = {
+                    status: 401,
+                    body: "Invalid Password",
+                };
+                return;
+            }
+        }
+    }
+
+    // Username not found
+    if (!userFound) {
+        context.res = {
+            status: 401,
+            body: "Not a registered username",
+        };
+    }
+};
