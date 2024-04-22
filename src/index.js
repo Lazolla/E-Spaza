@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { Auth0Provider } from '@auth0/auth0-react';
-const domain=process.env.REACT_APP_AUTH0_DOMAIN;
-const clientId=process.env.REACT_APP_AUTH0_CLIENT_ID;
+const domain='dev-8ao6bgrymlzjni6w.us.auth0.com';
+const clientId='Z8R7nmU8IkNttNvD3nZK3WKtWdINm8R0';
 
 ReactDOM.render(  
     <React.StrictMode>
