@@ -9,6 +9,7 @@ const UserProfile=()=>{
                 {user?.picture && <img src={user.picture} alt={user?.name}></img>}
                 <h2>{user?.name}</h2>
                 <p>Email: {user?.email}</p>
+                <p>Nickname: {user?.nickname}</p>
 
             </article>
         )
