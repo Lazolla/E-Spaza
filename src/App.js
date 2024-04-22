@@ -1,13 +1,18 @@
 import React from 'react';
 import './index.css' ;
-import LoginForm from './components/LoginForm/LoginForm';
-
+import LoginButton from './components/LoginForm/LoginButton';
+import LogoutButton from './components/LoginForm/LogoutButton';
+import UserProfile from './components/UserProfile';
 function App() {
   
   return (
-    <div>
-      <LoginForm/>
-    </div>
+    <main className='column'>
+      <h1>Auth0 Login</h1>
+      <LoginButton/>
+      <LogoutButton/>
+      <UserProfile/>
+    </main>
+
   );
 }
 
